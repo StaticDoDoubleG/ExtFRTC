@@ -1,0 +1,51 @@
+name: sharemyself
+description: VPN and LAN hybrid P2P file sharing — no cloud relay.
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ── Discovery ───────────────────────────────────────────────────
+  multicast_dns: ^0.3.2        # mDNS for L2 peer discovery (FR-01)
+  http: ^1.2.0                 # HTTP client for signaling server (FR-01)
+
+  # ── Transfer & integrity ────────────────────────────────────────
+  # 1.x pulls dart_webrtc ^1.8 — fixes web compile (toJS / js_interop) on Flutter 3.27+
+  flutter_webrtc: ^1.4.0
+  web_socket_channel: ^3.0.1   # Signaling WebSocket (SDP/ICE only, not file relay)
+  crypto: ^3.0.3               # SHA-256 integrity check (FR-05)
+  file_picker: ^8.0.0          # File selection UI
+
+  # ── Background / Foreground service ────────────────────────────
+  flutter_background_service: ^5.0.5    # Foreground service (FR-04)
+  flutter_local_notifications: ^17.0.0  # Transfer progress notification
+
+  # ── Clipboard ───────────────────────────────────────────────────
+  clipboard_watcher: ^0.2.0    # Clipboard change detection (FR-07)
+
+  # ── Settings ────────────────────────────────────────────────────
+  shared_preferences: ^2.3.0   # Persist signaling server URL
+  path_provider: ^2.1.3        # Access Downloads/Documents folders (FR-03)
+  path: ^1.9.0
+
+  # ── Utilities ───────────────────────────────────────────────────
+  uuid: ^4.4.0                 # Stable device ID generation
+  device_info_plus: ^10.1.0    # Hostname / device metadata
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  fonts:
+    - family: GeneralFont
+      fonts:
+        - asset: assets/fonts/GoogleSans-Medium.ttf 
