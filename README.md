@@ -19,6 +19,23 @@ Local <-> VPN<br>
 VPN <-> VPN<br>
 is supported.<br><br>
 
+## Project State
+### Client
+| Program | State | - |
+|------|------|------|
+|**Android**| ✅ | Currently have a bug with Signaling Transfer Logic|
+|**iOS**| ❌ | Not built yet due to the lack of mac |
+|**Windows**| ✅ | Fully Usable |
+|**Web**| ✅ | Fully Usable, Page Handler is integrated to the server binary |
+
+### Server
+The Server is
+| Program | State | - |
+|------|------|------|
+|**Linux x64**| ✅ | Works like Charm |
+|**Linux aarch64**| ⚠️ | Not Checked, might work |
+|**Windows x64**| ❌ | Beta State, can be cancelled when it is not applicable |
+|**Windows ARM64**| ❌ | Not currently in implementation plan |
 ## Requirements
 > Last Update: 2026-05-26
 
